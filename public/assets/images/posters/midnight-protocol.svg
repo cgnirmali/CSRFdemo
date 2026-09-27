@@ -1,0 +1,23 @@
+<svg width="900" height="1340" viewBox="0 0 900 1340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#081521"/>
+      <stop offset="0.5" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#67E8F9"/>
+      <stop offset="1" stop-color="#0EA5E9"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1340" fill="url(#bg)"/>
+  <circle cx="660" cy="250" r="300" fill="url(#glow)" opacity="0.22"/>
+  <circle cx="245" cy="1040" r="350" fill="#0F172A" opacity="0.85"/>
+  <rect x="0" y="930" width="900" height="410" fill="#040814"/>
+  <path d="M90 240L520 180L810 340V920H90V240Z" fill="#0B1120" opacity="0.78"/>
+  <path d="M180 910L390 540L510 720L528 558L720 910H180Z" fill="#0EA5E9" opacity="0.42"/>
+  <path d="M330 1180L660 760H760L860 980L680 1200H330Z" fill="#0F172A" opacity="0.9"/>
+  <text x="96" y="1100" fill="#E2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700">MIDNIGHT</text>
+  <text x="96" y="1188" fill="#67E8F9" font-family="Arial, Helvetica, sans-serif" font-size="120" font-weight="800">PROTOCOL</text>
+  <text x="96" y="1260" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="40" letter-spacing="10">ACTION / THRILLER</text>
+</svg>

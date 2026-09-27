@@ -1,0 +1,16 @@
+<svg width="900" height="1340" viewBox="0 0 900 1340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#06131B"/>
+      <stop offset="0.5" stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1340" fill="url(#bg)"/>
+  <circle cx="465" cy="480" r="250" fill="#A7F3D0" opacity="0.10"/>
+  <path d="M0 1180C160 880 280 715 420 590C565 462 760 420 900 380V1340H0V1180Z" fill="#0F172A"/>
+  <path d="M140 310L240 270L520 330L780 240L760 650L500 760L360 700L140 310Z" fill="#0EA5E9" opacity="0.12"/>
+  <text x="96" y="1104" fill="#E2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="88" font-weight="700">THE SILENT</text>
+  <text x="96" y="1192" fill="#86EFAC" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="800">PLANET</text>
+  <text x="96" y="1260" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="9">ADVENTURE / SCI-FI</text>
+</svg>

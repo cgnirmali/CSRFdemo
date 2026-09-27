@@ -1,0 +1,17 @@
+<svg width="900" height="1340" viewBox="0 0 900 1340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0B1120"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1340" fill="url(#bg)"/>
+  <path d="M0 1040L150 680L350 860L600 520L900 980V1340H0V1040Z" fill="#0F172A"/>
+  <path d="M100 260H800L720 980H180L100 260Z" fill="#0B1725" opacity="0.8"/>
+  <path d="M440 290L640 430L520 960H280L170 430L355 290H440Z" fill="#38BDF8" opacity="0.16"/>
+  <path d="M380 1040L415 774L475 774L510 1040H380Z" fill="#67E8F9" opacity="0.6"/>
+  <text x="96" y="1098" fill="#E2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="94" font-weight="700">SHADOW</text>
+  <text x="96" y="1188" fill="#67E8F9" font-family="Arial, Helvetica, sans-serif" font-size="110" font-weight="800">DISTRICT</text>
+  <text x="96" y="1260" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="8">CYBERPUNK</text>
+</svg>

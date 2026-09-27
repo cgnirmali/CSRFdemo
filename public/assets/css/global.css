@@ -7,9 +7,9 @@
 /* Global brand colors — set once here, then use utilities like
    bg-primary, text-secondary, border-accent anywhere in the app. */
 @theme {
-    --color-primary: #102E50;   /* indigo-600 — main brand color */
-    --color-secondary: #1A3D64; /* slate-900  — dark / text color */
-    --color-accent: #ec4899;    /* pink-500   — highlight color */
+    --color-primary: #22d3ee;   /* cyan-400 — main brand color */
+    --color-secondary: #0f172a; /* slate-900  — dark / text color */
+    --color-accent: #06b6d4;    /* cyan-500   — accent highlight */
 }
 
 /* Base styles */

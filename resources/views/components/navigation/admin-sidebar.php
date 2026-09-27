@@ -41,11 +41,11 @@ $footerMenu = array_values(array_filter(
     <div class="shrink-0 border-b border-slate-100 p-3">
         <div class="flex h-14 items-center justify-between  px-3.5">
             <a href="/admin" class="flex min-w-0 items-center gap-3">
-                <img src="/assets/images/giftvibe-mark.svg"
-                     alt="GiftVibe"
+                <img src="<?= e(asset('images/cinevault-mark.svg')) ?>"
+                     alt="CineVault"
                      class="h-9 w-9 shrink-0 rounded-lg shadow-sm">
                 <span class="truncate text-lg font-extrabold tracking-tight text-secondary" data-sidebar-logo-text>
-                    Gift<span class="text-primary">Vibe</span>
+                    Cine<span class="text-cyan-500">Vault</span>
                 </span>
             </a>
 

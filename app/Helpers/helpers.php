@@ -89,6 +89,57 @@ if (!function_exists('csrf_token')) {
     }
 }
 
+if (!function_exists('classroom_csrf_protected')) {
+    /**
+     * Classroom round uses the LMS CSRF flag when LMS_ENV_PATH is set.
+     * This only reads a local .env file. It does not call the LMS.
+     */
+    function classroom_csrf_protected(): bool
+    {
+        $lmsEnvPath = (string) env('LMS_ENV_PATH', '');
+
+        if ($lmsEnvPath !== '' && is_file($lmsEnvPath)) {
+            $lines = file($lmsEnvPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
+
+            foreach ($lines as $line) {
+                $line = trim($line);
+
+                if ($line === '' || str_starts_with($line, '#') || !str_starts_with($line, 'CSRF_PROTECTION_ENABLED=')) {
+                    continue;
+                }
+
+                $value = trim(substr($line, strlen('CSRF_PROTECTION_ENABLED=')));
+
+                if (strlen($value) >= 2
+                    && (($value[0] === '"' && $value[strlen($value) - 1] === '"')
+                        || ($value[0] === "'" && $value[strlen($value) - 1] === "'"))) {
+                    $value = substr($value, 1, -1);
+                }
+
+                return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? true;
+            }
+        }
+
+        $value = env('CSRF_PROTECTION_ENABLED', 'true');
+
+        if (is_bool($value)) {
+            return $value;
+        }
+
+        return filter_var($value, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) ?? true;
+    }
+}
+
+if (!function_exists('lms_status_url')) {
+    /**
+     * Student-portal address the classroom Change status button posts to.
+     */
+    function lms_status_url(): string
+    {
+        return trim((string) env('LMS_STATUS_URL', ''));
+    }
+}
+
 if (!function_exists('csrf_field')) {
     /**
      * Hidden input to put inside every <form method="post">.

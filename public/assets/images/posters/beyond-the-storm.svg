@@ -1,0 +1,16 @@
+<svg width="900" height="1340" viewBox="0 0 900 1340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071827"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#030712"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1340" fill="url(#bg)"/>
+  <path d="M0 980L210 700L420 760L660 420L900 940V1340H0V980Z" fill="#0F172A"/>
+  <path d="M180 260L730 360L800 1010H120L180 260Z" fill="#082F49" opacity="0.8"/>
+  <path d="M220 840L360 500L530 620L680 500L760 840H220Z" fill="#7DD3FC" opacity="0.18"/>
+  <text x="96" y="1105" fill="#E2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="94" font-weight="700">BEYOND</text>
+  <text x="96" y="1193" fill="#7DD3FC" font-family="Arial, Helvetica, sans-serif" font-size="108" font-weight="800">THE STORM</text>
+  <text x="96" y="1260" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="7">ADVENTURE / DRAMA</text>
+</svg>

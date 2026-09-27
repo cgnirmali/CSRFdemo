@@ -8,6 +8,15 @@ declare(strict_types=1);
  * Flow: define paths → autoloader → load routes → dispatch request.
  */
 
+if (PHP_SAPI === 'cli-server') {
+    $requestPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+    $file = __DIR__ . $requestPath;
+
+    if ($requestPath !== '/' && is_file($file)) {
+        return false;
+    }
+}
+
 define('BASE_PATH', dirname(__DIR__));
 
 /* Simple PSR-4 style autoloader for the App\ namespace (app/ folder). */
@@ -45,6 +54,19 @@ require BASE_PATH . '/app/Helpers/helpers.php';
 session_name((string) env('SESSION_NAME', 'PHPSESSID'));
 
 if (session_status() === PHP_SESSION_NONE) {
+    $sessionSecure = filter_var(
+        env('SESSION_SECURE', isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
+        FILTER_VALIDATE_BOOLEAN,
+    );
+
+    session_set_cookie_params([
+        'lifetime' => 0,
+        'path'     => '/',
+        'secure'   => $sessionSecure,
+        'httponly' => true,
+        'samesite' => 'Lax',
+    ]);
+
     session_start();
 }
 

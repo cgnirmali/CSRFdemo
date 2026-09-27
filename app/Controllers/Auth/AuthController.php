@@ -64,6 +64,7 @@ class AuthController extends Controller
 
         // Compare the submitted password with the stored hash.
         if ($user !== null && password_verify($password, (string) $user['password'])) {
+            session_regenerate_id(true);
             $_SESSION['user_id']   = (int) $user['id'];
             $_SESSION['user_name'] = (string) $user['name'];
 
@@ -139,6 +140,7 @@ class AuthController extends Controller
             ]);
 
             // Log them in immediately.
+            session_regenerate_id(true);
             $_SESSION['user_id']   = (int) $id;
             $_SESSION['user_name'] = $name;
 

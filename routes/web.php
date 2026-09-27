@@ -9,6 +9,9 @@ declare(strict_types=1);
 
 /* Public */
 $router->get('/', 'Public\HomeController@index');
+$router->get('/movies', 'Public\MovieController@index');
+$router->get('/movies/{slug}', 'Public\MovieController@show');
+$router->get('/security-lab', 'Public\SecurityLabController@index');
 $router->get('/base', 'Public\BaseController@index');
 
 /* Auth — only for guests (you can't visit these while logged in) */

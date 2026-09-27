@@ -75,16 +75,16 @@ class Router
     {
         $path = rtrim(parse_url($uri, PHP_URL_PATH) ?: '/', '/') ?: '/';
 
-        $handler = $this->routes[$method][$path] ?? null;
-
-        if ($handler === null) {
+        $routeMatch = $this->matchRoute($method, $path);
+        if ($routeMatch === null) {
             http_response_code(404);
             echo '404 Not Found';
             return;
         }
 
-        // 1) Run the route middleware before the controller.
-        foreach ($this->routeMiddleware[$method][$path] ?? [] as $middlewareClass) {
+        [$handler, $params] = $routeMatch;
+
+        foreach ($this->routeMiddleware[$method][$this->resolveRouteKey($method, $path)] ?? [] as $middlewareClass) {
             if (!class_exists($middlewareClass)) {
                 http_response_code(500);
                 echo "Middleware not found: {$middlewareClass}";
@@ -96,7 +96,6 @@ class Router
             $instance->handle();
         }
 
-        // 2) Instantiate the controller and call the action.
         [$controller, $action] = explode('@', $handler);
         $controllerClass = "App\\Controllers\\{$controller}";
 
@@ -114,6 +113,64 @@ class Router
             return;
         }
 
-        $instance->{$action}();
+        call_user_func_array([$instance, $action], $params);
+    }
+
+    /**
+     * Match the request path against a direct route or a route containing {param} placeholders.
+     *
+     * @return array{0:string,1:array<string,mixed>}|null
+     */
+    private function matchRoute(string $method, string $path): ?array
+    {
+        if (isset($this->routes[$method][$path])) {
+            return [$this->routes[$method][$path], []];
+        }
+
+        foreach ($this->routes[$method] ?? [] as $routePath => $handler) {
+            if (!str_contains($routePath, '{')) {
+                continue;
+            }
+
+            $pattern = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '([^/]+)', $routePath);
+            $pattern = '#^' . str_replace('/', '\/', $pattern) . '$#';
+
+            if (preg_match($pattern, $path, $matches) !== 1) {
+                continue;
+            }
+
+            preg_match_all('/\{([a-zA-Z0-9_]+)\}/', $routePath, $names);
+            $params = [];
+
+            foreach ($names[1] as $index => $name) {
+                $params[$name] = $matches[$index + 1] ?? null;
+            }
+
+            return [$handler, $params];
+        }
+
+        return null;
+    }
+
+    private function resolveRouteKey(string $method, string $path): string
+    {
+        if (isset($this->routes[$method][$path])) {
+            return $path;
+        }
+
+        foreach ($this->routes[$method] ?? [] as $routePath => $handler) {
+            if (!str_contains($routePath, '{')) {
+                continue;
+            }
+
+            $pattern = preg_replace('/\{([a-zA-Z0-9_]+)\}/', '([^/]+)', $routePath);
+            $pattern = '#^' . str_replace('/', '\/', $pattern) . '$#';
+
+            if (preg_match($pattern, $path) === 1) {
+                return $routePath;
+            }
+        }
+
+        return $path;
     }
 }

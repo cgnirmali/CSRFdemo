@@ -1,0 +1,16 @@
+<svg width="900" height="1340" viewBox="0 0 900 1340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#030712"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1340" fill="url(#bg)"/>
+  <circle cx="450" cy="470" r="260" fill="#A5F3FC" opacity="0.10"/>
+  <path d="M110 250H790L700 1000H200L110 250Z" fill="#0F172A" opacity="0.85"/>
+  <path d="M300 966C350 662 388 560 450 468C528 348 616 318 716 310V956H300V966Z" fill="#22D3EE" opacity="0.16"/>
+  <text x="96" y="1104" fill="#E2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="104" font-weight="700">DARK</text>
+  <text x="96" y="1192" fill="#A5F3FC" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="800">ORBIT</text>
+  <text x="96" y="1260" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="8">SCI-FI / THRILLER</text>
+</svg>

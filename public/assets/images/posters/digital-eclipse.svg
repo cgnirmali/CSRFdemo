@@ -1,0 +1,16 @@
+<svg width="900" height="1340" viewBox="0 0 900 1340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0B1220"/>
+      <stop offset="0.5" stop-color="#111827"/>
+      <stop offset="1" stop-color="#020617"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1340" fill="url(#bg)"/>
+  <circle cx="440" cy="480" r="220" fill="#F8FAFC" opacity="0.08"/>
+  <path d="M84 260H816L735 1020H168L84 260Z" fill="#0F172A" opacity="0.85"/>
+  <path d="M245 910L360 420H565L656 910H245Z" fill="#22D3EE" opacity="0.15"/>
+  <text x="96" y="1108" fill="#E2F8FF" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700">DIGITAL</text>
+  <text x="96" y="1196" fill="#A5F3FC" font-family="Arial, Helvetica, sans-serif" font-size="110" font-weight="800">ECLIPSE</text>
+  <text x="96" y="1260" fill="#94A3B8" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="8">THRILLER / DRAMA</text>
+</svg>
